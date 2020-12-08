@@ -9,6 +9,7 @@ import 'react-app-polyfill/stable';
 ---------------------------*/
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 /*---------------------------
 | Components
@@ -30,4 +31,4 @@ const ReactRedux = () => {
 /*---------------------------
 | Render to DOM
 ---------------------------*/
-ReactDOM.render(<ReacrRedux />, document.getElementById('root'));
+ReactDOM.render(<ReactRedux />, document.getElementById('root'));

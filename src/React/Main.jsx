@@ -4,9 +4,9 @@ import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import _ from 'lodash';
 
-// /* Scripts ---------------------------*/
-// import * as AuctionActions from 'Redux/auction/actions.js';
-// import * as UserActions from 'Redux/user/actions.js';
+/* Scripts ---------------------------*/
+import * as AuctionActions from 'Redux/auction/actions.js';
+import * as UserActions from 'Redux/user/actions.js';
 
 /* Components ---------------------------*/
 import Content from './Shared/Content.jsx';
@@ -17,16 +17,16 @@ import Nav from './Shared/Nav.jsx';
 
 const Main = () => {
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // const { auction } = useSelector((state) => state);
+    const { auction } = useSelector((state) => state);
 
-    // useEffect(() => {
-    //     dispatch(AuctionActions.loadAuctions());
-    //     dispatch(UserActions.loadUser());
-    // }, [dispatch]);
+    useEffect(() => {
+        dispatch(AuctionActions.loadAuctions());
+        dispatch(UserActions.loadUser());
+    }, [dispatch]);
 
-    // if (_.isEmpty(auction.current)) { return 'Preloading...'; }
+    if (_.isEmpty(auction.current)) { return 'Preloading...'; }
 
     return (
         <MainStyled className='Main'>
