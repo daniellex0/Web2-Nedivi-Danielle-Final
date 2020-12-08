@@ -1,9 +1,13 @@
-import { createStore } from 'redux';
-import combinedReducer from './combinedReducers.js';
-import composeEnhancers from './composeEnhancers.js';
+import { combineReducers } from 'redux';
 
-const configureStore = () => {
-    return createStore(combinedReducer, composeEnhancers);
-}
+import auctionReducer from './auction/reducers.js';
+import bidManagerReducer from './bidManager/reducers.js';
+import userReducer from './user/reducers.js';
 
-export default configureStore;
+const combinedReducers = combineReducers({
+    auction: auctionReducer,
+    bidManager: bidManagerReducer,
+    user: userReducer,
+});
+
+export default combinedReducers;

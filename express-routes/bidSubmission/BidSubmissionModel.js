@@ -11,17 +11,19 @@ const BidSubmissionSchema = new Schema({
     status: {
         type: String,
         enum : ['draft', 'submitted'],
+        default: 'draft',
         required: [true, 'Status is a required field.'],
         trim: true,
     },
     bids: {
         type: Array,
     },
-}, {
+}, { 
     strict: true,
-    collection: 'bid_submission',
+    collection: 'bid_submissions',
     timestamps: true,
 });
 
-const BidSubmissionModel = mongoose.model('BidSubmission',  BidSubmissionSchema);
+
+const BidSubmissionModel = mongoose.model('BidSubmission', BidSubmissionSchema);
 module.exports = BidSubmissionModel;

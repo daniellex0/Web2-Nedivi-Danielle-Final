@@ -5,9 +5,9 @@ import * as BidManagerActions from '../bidManager/actions.js';
 /*===================================
 || 
 || Action Creators
-|| Returns an Object that provides
-||  1. action type
-||  2. Data to update in store.
+|| Returns an Object that provides 
+    1. action type
+    2. Data to update in store.
 || 
 ===================================*/
 export const userAuthUpdate = (isLoggedIn, profile) => {
@@ -21,11 +21,11 @@ export const userAuthUpdate = (isLoggedIn, profile) => {
 /*---------------------------
 | Action Dispatchers
 ---------------------------*/
-/* Put user in Logged in state, if session exists ---------------------------*/
+/* Put user in Logged in state, if sessions exists ---------------------------*/
 export const loadUser = () => {
     return (dispatch, getState) => {
         API.get('/users/isLoggedIn').then((apiResponse) => {
-            
+
             console.log('apiResponse', apiResponse);
 
             const isLoggedIn = apiResponse.data.success;
@@ -33,7 +33,7 @@ export const loadUser = () => {
 
             dispatch(userAuthUpdate(isLoggedIn, profile));
             dispatch(BidManagerActions.loadUserBids());
-        
+
         });
     }
 }

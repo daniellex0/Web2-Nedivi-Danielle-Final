@@ -12,13 +12,13 @@ const bidManagerReducer = (state = defaultState, action) => {
                 ...state,
                 current: action.current,
             }
-        case ActionTypes.BM_PAST_UPDATE:
-        return {
-            ...state,
-            past: action.past,
-        }
-    default:
-        return state;
+            case ActionTypes.BM_PAST_UPDATE:
+            return {
+                ...state,
+                past: action.past,
+            }
+        default:
+            return state;
     }
 }
 

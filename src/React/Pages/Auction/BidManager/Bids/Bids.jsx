@@ -32,7 +32,7 @@ const Bids = ({bids}) => {
                 })
             }
 
-            {/* <Button onClick={ handleSubmitBids }>Submit Bids</Button> */}
+            <Button onClick={ handleSubmitBids }>Submit Bids</Button>
 
         </BidsStyled>
     );

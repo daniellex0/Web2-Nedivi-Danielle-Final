@@ -10,15 +10,15 @@ const UserModel = require('./UserModel.js');
 /*---------------------------
 | Login
 ---------------------------*/
-router.post('/login', (req, res) => {
+router.post('/login', (req,res) => {
 
     /* Get Props ---------------------------*/
     const {
-        email, 
+        email,
         password
     } = req.body;
-
-    /* Response Handler ---------------------------*/
+    
+    /* Repsonse Handler ---------------------------*/
     const RH = responseHandler({
         title: 'User: Login',
         payloadKey: "user",
@@ -27,12 +27,12 @@ router.post('/login', (req, res) => {
             const session = req.session;
 
             // Expiration
-            const sessionExpiry = 30 * 24 * 60 * 60 * 1000; // 30 days... milliseconds
+            const sessionExpiry = 30 * 24 * 60 * 60 * 1000; // 30 days...milliseconds
             session.cookie.maxAge = sessionExpiry;
 
             // This user should log in again after restarting the browser
             session.cookie.expires = false; // you could also set a time relative to Expiration
-        
+
             // Custom Session Variables
             session.isLoggedIn = true;
             session.user = resp;
@@ -41,7 +41,7 @@ router.post('/login', (req, res) => {
 
     /* Request Profile from DB ---------------------------*/
     UserModel
-        .findOne({
+        .findOne({ 
             email: email,
             password: password,
         })
@@ -52,10 +52,9 @@ router.post('/login', (req, res) => {
 /*---------------------------
 | Logout
 ---------------------------*/
-
-router.get('/logout', (req, res) => {
-
-    /* Response Handler ---------------------------*/
+router.get('/logout', (req,res) => {
+    
+    /* Repsonse Handler ---------------------------*/
     const RH = responseHandler({
         title: 'User: Logout',
         payloadKey: "user",
@@ -73,10 +72,10 @@ router.get('/logout', (req, res) => {
 | isLoggedIn
 ---------------------------*/
 router.get('/isLoggedIn', (req,res) => {
-
+    
     const isLoggedIn = !!req.session.isLoggedIn;
 
-    /* Response Handler ---------------------------*/
+    /* Repsonse Handler ---------------------------*/
     const RH = responseHandler({
         title: 'User: Auth Check',
         payloadKey: "user",
@@ -84,7 +83,7 @@ router.get('/isLoggedIn', (req,res) => {
     });
 
     /* Respond ---------------------------*/
-    const message = !isLoggedIn ? 'Not logged in.' : 'User is logged in.';
+    const message =  !isLoggedIn ? 'Not logged in.' : 'User is logged in.';
     RH.manualResp(isLoggedIn, message, {
         user: isLoggedIn ? req.session.user : {}
     });

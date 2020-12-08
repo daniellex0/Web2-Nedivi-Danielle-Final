@@ -13,7 +13,7 @@ require('dotenv').config();
 ---------------------------*/
 const path = require('path');
 const express = require('express');
-const cookieParser = require("cookie-parser"); 
+const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 /*---------------------------
@@ -25,20 +25,20 @@ const mongoConn = process.env.MONGO_DB_CONN;
 /* Connecting to Mongo ---------------------------*/
 if (mongoConn) {
     mongoose
-        .connect(mongoConn, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: flase })
+        .connect(mongoConn,  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
         .then((res) => {
             console.log('Mongo: Connection made.');
         })
         .catch((err) => {
             console.log(`Mongoose Connection Error: ${err}`);
         });
-    } else {
-        console.log('Missing MONGO_DB_CONN env var for Mongo Connection');
-    }
+} else {
+    console.log('Missing MONGO_DB_CONN env var for Mongo connection');
+}
 
-    /*---------------------------
-    | Express
-    ---------------------------*/
+/*---------------------------
+| Express
+---------------------------*/
 /* Initialize ---------------------------*/
 const app = express();
 
@@ -46,17 +46,15 @@ const app = express();
 app.use(express.json());
 
 /* Server Session support user access. ---------------------------*/
-// Initialize cookie-parser to allow us access the cookies stored in the browser.
+// initialize cookie-parser to allow us access the cookies stored in the browser. 
 app.use(cookieParser());
-app.use(session({
+app.use(session({ 
     secret: "Secret Unique Value",
     resave: false,
     saveUninitialized: true,
 }));
 
-/*---------------------------
-| Serve the static files from the React app
----------------------------*/
+/* Serve the static files from the React app ---------------------------*/
 app.use(express.static(path.join(__dirname, 'build')));
 
 /*---------------------------
@@ -96,7 +94,7 @@ const FINAL_PORT = (PORT) ? PORT : 5000; // In case none are provided fall back 
 /*---------------------------
 | Start the Server
 ---------------------------*/
-app.listen(FINAL_PORT, () => { 
+app.listen(FINAL_PORT, () => {
     console.log('Express Server is up and running. Currently listening on port: ' + FINAL_PORT ); 
 });
 

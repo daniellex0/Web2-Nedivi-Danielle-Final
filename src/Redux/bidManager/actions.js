@@ -6,11 +6,11 @@ import API from 'common/API.js';
 || Action Creators
 || Returns an Object that provides
 ||  1. action type
-||  2. Data to update in store
+||  2. Data to update in store.
 || 
 ===================================*/
 export const currentUpdate = (current) => {
-
+    
     return {
         type: ActionTypes.BM_CURRENT_UPDATE,
         current: current,
@@ -60,6 +60,7 @@ const filterBids = (bidSubmissions) => {
     }
 }
 
+
 export const addLotToBids = (lot) => {
     return (dispatch, getState) => {
 
@@ -72,13 +73,15 @@ export const addLotToBids = (lot) => {
 
         console.log('currentBidSubmission', currentBidSubmission);
 
+
         if (!currentBidSubmission.bids) {
-            API.post('bidSubmission/addlot', postData).then((apiResponse) => {
+            API.post('/bidSubmission/addLot', postData).then((apiResponse) => {
                 dispatch(currentUpdate(apiResponse.data.payload.bidSubmission));
             });
         } else {
             // check to make sure it does not already exist
-            const alreadyExists = currentBidSubmission.bid && currentBidSubmission.bids.find((currBid) => {
+            const alreadyExists = currentBidSubmission.bids && currentBidSubmission.bids.find((currBid) => {
+                return (currBid.lot.id === lot.id);
             });
 
             if (!alreadyExists) {
@@ -100,10 +103,10 @@ export const removeLotToBids = (lot) => {
             lot: lot,
         }
 
-        //Grab existing state
+        // Grab existing state
         const { bidManager: { current: currentBidSubmission } } = getState();
 
-        API.post('bidSubmission/removeLot', postData).then((apiResponse) => {
+        API.post('/bidSubmission/removeLot', postData).then((apiResponse) => {
 
             currentBidSubmission.bids = currentBidSubmission.bids.filter((bid) => {
                 return bid.lot.id !== lot.id;
@@ -111,7 +114,7 @@ export const removeLotToBids = (lot) => {
 
             dispatch(currentUpdate(currentBidSubmission));
         });
-    }
+    } 
 }
 
 /*---------------------------
@@ -120,7 +123,7 @@ export const removeLotToBids = (lot) => {
 export const submitBids = (callback) => {
     return (dispatch, getState) => {
         API.post('/bidSubmission/submitBids').then((apiResponse) => {
-            console.log('submitBids Action',  apiResponse);
+            console.log('submitBids Action:', apiResponse);
             dispatch(loadUserBids());
             callback();
         });
