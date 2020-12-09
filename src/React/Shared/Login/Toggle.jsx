@@ -13,7 +13,7 @@ const Toggle = ({onClick}) => {
 
     const { user } = useSelector((state) => state);
 
-    const color = (user.isLoggedIn) ? '#8c0b04' : '#de6444';
+    const color = (user.isLoggedIn) ? '#03a9f4' : '#00d4c4';
 
     return (
         <ToggleStyled className='Toggle'>

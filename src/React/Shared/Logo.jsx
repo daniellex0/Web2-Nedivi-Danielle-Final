@@ -7,7 +7,7 @@ const Logo = () => {
     return (
         <LogoStyled className='Logo'>
             <Link to='/'>
-                <img src="/assets/img/lama-logo.png" alt="LAMA: Los Angeles Modern Auctions"/>
+                <img src="/assets/img/tourly-logo.png" alt="Tourly"/>
             </Link>       
         </LogoStyled>
     );

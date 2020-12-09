@@ -7,8 +7,8 @@ const Nav = () => {
     return (
         <NavStyled className='Nav'>
             <NavLink to='/' exact>Home</NavLink> 
-            <NavLink to='/auction'>Auction</NavLink> 
-            <NavLink to='/homework'>Homework</NavLink> 
+            <NavLink to='/auction'>Book a Tour</NavLink> 
+            <NavLink to='/homework'>About</NavLink> 
             <NavLink to='/contact'>Contact</NavLink> 
         </NavStyled>
     );
@@ -23,31 +23,29 @@ const NavStyled = styled.nav`
 
     padding-top: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+    border-bottom: none;
 
     a {
         display: block;
         flex: 0 0 150px;
 
         margin-right: 5px;
-        background-color: #eee;
-        border-bottom: 3px solid #333;
+        border-bottom: none;
 
-        font-size: 14px;
+        font-size: 16px;
         text-align: center;
         text-decoration: none;
         height: 40px;
         line-height: 40px;
 
         &:hover {
-            background-color: #ddd;
-            border-bottom: 3px solid #333;
+            border-bottom: 3px solid #00d4c4;
+            color: #00d4c4;
         }
 
         &.active {
-            background-color: #de6444;
-            border-bottom: 3px solid #6b2c1c;
-            color: white;
+            border-bottom: 3px solid #03a9f4;
+            color: #03a9f4;
         }
 
         &.last-child {
