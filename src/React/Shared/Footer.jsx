@@ -10,7 +10,7 @@ const Footer = () => {
         <FooterStyled className='Footer'>
             <Logo/>
             <div className="copyright">
-                &copy; LAMA: Los Angeles Modern Auctions. All rights reserved.
+                &copy; Tourly. All rights reserved.
             </div>
         </FooterStyled>
     );
