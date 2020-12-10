@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import { mq } from 'common/mediaQueries.js';
+
 /* Components ---------------------------*/
 
 
@@ -16,9 +18,9 @@ const Homework = () => {
             </div>
             <div className="about-columns">
                 <div className="about-column about-column1">
-                    <Link to='/'>
-                        <img src="/assets/img/tourly-friends.png" alt="Tourly founders"/>
-                    </Link>   
+                        <Link to='/'>
+                            <img src="/assets/img/tourly-friends.png" alt="Tourly founders"/>
+                        </Link>   
                 </div>
                 <div className="about-column about-column2">
                     <div className="paragraphs">
@@ -43,29 +45,38 @@ const HomeworkStyled = styled.div`
     }
 
     .about-columns {
+
+        @media ${mq.tablet} {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
 
-        .about-column {
-            padding: 20px;
-        }
+            .about-column {
+                padding: 20px;
+            }
 
-        .about-column1 {
-            width: 45%;
-        }
+            .about-column1 {
+                width: 40%;
+            }
 
-        .about-column2 {
-            width: 30%;
-            font-size: 17px;
-            margin-top: 50px;
-            line-height: 20px;
-        }
+                img {
+                    /* position: relative; */
+                    max-width: 100%;
+                    height: auto;
+                }
 
-        .paragraphs {
-            background-color: #FCF6ED;
-            padding: 15px;
-        }
+            .about-column2 {
+                width: 35%;
+                font-size: 17px;
+                margin-top: 50px;
+                line-height: 20px;
+            }
 
+            .paragraphs {
+                background-color: #FCF6ED;
+                padding: 15px;
+            }
+
+        }
     }
 `;

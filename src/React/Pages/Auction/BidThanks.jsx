@@ -17,7 +17,9 @@ const BidThanks = () => {
 
     return (
         <BidThanksStyled className='BidThanks'>
-            <h2>Please enter payment details</h2>
+            <div className="payment-header">
+                <h3>Please enter payment details</h3>
+            </div>
             <UniversalForm
                 formData={ defaultData }
                 submitText='Submit payment'
@@ -31,5 +33,7 @@ const BidThanks = () => {
 export default BidThanks;
 
 const BidThanksStyled = styled.div`
-
+    .payment-header {
+        text-align: center;
+    }
 `;

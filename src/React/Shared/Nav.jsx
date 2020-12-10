@@ -82,7 +82,7 @@ const NavStyled = styled.nav`
         cursor: pointer;
 
         svg {
-            color: #5d36f5;
+            color: #333;
             width: 40px;
             height: auto;
         }

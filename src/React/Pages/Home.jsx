@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { mq } from 'common/mediaQueries.js';
+
 /* Components ---------------------------*/
 // import Template from '../Shared/Template.jsx';
 import LeftHomePanel from './Home/LeftHomePanel.jsx';
@@ -10,10 +12,6 @@ const Home = () => {
 
     return (
         <HomeStyled className='Home'>
-            {/* <Template
-                title='Welcome'
-                aside={ false }
-                > */}
             <div className="columns">
                 <div className="column column1">
                     <LeftHomePanel />
@@ -22,7 +20,6 @@ const Home = () => {
                     <RightHomePanel/>
                 </div> 
             </div>
-            {/* </Template>  */}
         </HomeStyled>
     );
 }
@@ -30,21 +27,39 @@ const Home = () => {
 export default Home;
 
 const HomeStyled = styled.div`
-        .columns {
-        display: flex;
-        flex-wrap: wrap;
+    .columns {
         justify-content: center;
 
-        .column {
-            padding: 20px;
-        }
+        @media ${mq.tablet} {
+        display: flex;
+        flex-wrap: wrap;
 
-        .column1 {
-            width: 30%;
-        }
-        .column2 {
-            width: 55%;
+            .column {
+                padding: 20px;
+            }
+
+            .column1 {
+                width: 30%;
+
+                img {
+                    /* position: relative; */
+                    max-width: 100%;
+                    height: auto;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            .column2 {
+                width: 55%;
+
+                img {
+                    max-width: 100%;
+                }
+
         }
 
     }
+
+}
+
 `;

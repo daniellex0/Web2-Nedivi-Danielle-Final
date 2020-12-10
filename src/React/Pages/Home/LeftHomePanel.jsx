@@ -8,7 +8,7 @@ const LeftHomePanel = () => {
 
     return (
         <LeftHomePanelStyled className='LeftHomePanel'>
-            <ExploreImage className="left-image"/> 
+            <ExploreImage /> 
             <div className="home-descrip">
                 <p>
                     With Tourly, book a tour with a world-class guide alone with a group of fellow fun adventurers. Discover the world in the most exciting and immersive way imaginable.
@@ -24,7 +24,5 @@ const LeftHomePanel = () => {
 export default LeftHomePanel;
 
 const LeftHomePanelStyled = styled.div`
-    .left-image {
-        width: 100%;
-    }
+
 `;
