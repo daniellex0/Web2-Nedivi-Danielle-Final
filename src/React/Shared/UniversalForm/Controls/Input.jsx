@@ -33,9 +33,10 @@ const Input = ({ formField }) => {
 export default Input;
 
 const InputStyled = styled.input`
-    background-color: #fff;
     font-size: 16px;
     padding: 5px 10px;
-    border: solid 1px #999;
+    border: none;
+    background-color: #e0e5ff;
     width: 100%;
+    border-radius: 5px;
 `;

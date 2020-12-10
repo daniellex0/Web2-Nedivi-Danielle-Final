@@ -11,14 +11,15 @@ const BidManager = () => {
 
     return (
         <BidManagerStyled className='BidManager'>
-            BidManager 
+                <div className="my-cart">
+                <h3>Your Cart</h3> 
 
-            {
-                (bids && bids.length > 0)
-                ? <Bids bids={ bids }/>
-                : 'Currently you have no lots in your Bid Manager.'
-            }
-            
+                {
+                    (bids && bids.length > 0)
+                    ? <Bids bids={ bids }/>
+                    : 'Currently you have no lots in your Bid Manager.'
+                }
+            </div>
         </BidManagerStyled>
     );
 }
@@ -26,5 +27,8 @@ const BidManager = () => {
 export default BidManager;
 
 const BidManagerStyled = styled.div`
-    
+    .my-cart {
+        text-align: center;
+        /* margin: 0 40px; */
+    }
 `;

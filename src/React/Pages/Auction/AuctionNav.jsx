@@ -6,8 +6,8 @@ const AuctionNav = () => {
 
     return (
         <AuctionNavStyled className='AuctionNav'>
-            <NavLink to='/auction/' exact>Lots</NavLink>
-            <NavLink to='/auction/bids'>Bids</NavLink> 
+            <NavLink to='/auction/' exact>Tours</NavLink>
+            <NavLink to='/auction/bids'>My Cart</NavLink> 
         </AuctionNavStyled>
     );
 }

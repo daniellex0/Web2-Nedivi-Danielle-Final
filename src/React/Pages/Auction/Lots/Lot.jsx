@@ -26,20 +26,20 @@ const Lot = ({lot, auctionID}) => {
                 alt={lot.title} 
                 onClick={ handleOnOpen }
             />
-            <h3>{ `Lot: ${lot.number}: ${lot.title}` }</h3> 
+            <h3>{ `${lot.title}` }</h3> 
             <AddRemoveLot lot={ lot }/>
             <Lightbox
                 isOpen={ isOpen }
                 onClose={ handleOnClose }
-                headerText={ `Lot# ${lot.number}: ${lot.title}` }
+                headerText={ `${lot.title}` }
             >
                 <img 
                     src={ `/assets/img/auctions/${auctionID}/lots/small/${lot.images.small}` }
                     alt={lot.title} 
                 /> 
-                <h3>{ `Lot: ${lot.number}: ${lot.title}` }</h3>
-                <div className="artist"><b>Artist</b>{ lot.artist }</div>
-                <div className="medium"><b>Medium</b>{ lot.medium }</div>
+                <h3>{ `${lot.title}` }</h3>
+                <div className="artist"><b>Duration:</b>{ lot.artist }</div>
+                <div className="medium"><b>Details:</b>{ lot.medium }</div>
                 <AddRemoveLot lot={ lot } />
             </Lightbox>
         

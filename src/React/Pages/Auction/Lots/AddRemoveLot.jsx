@@ -39,8 +39,8 @@ const AddRemoveLot = ({ lot }) => {
         <AddRemoveLotStyled className='AddRemoveLot'>
         {
             (isInBids)
-            ?  <Button onClick={ handleRemoveLot }>Remove Lot</Button> 
-            :  <Button onClick={ handleOnClick }>Add Lot</Button>
+            ?  <Button onClick={ handleRemoveLot }>Cancel Booking</Button> 
+            :  <Button onClick={ handleOnClick }>Book Tour</Button>
         }
         </AddRemoveLotStyled>
     );

@@ -40,7 +40,6 @@ const LabelInputStyled = styled.div`
         flex: 0 0 40%;
         text-align: right;
         padding: 10px;
-        border: dashed 1px #eee;
     }
 
     label {
@@ -51,6 +50,5 @@ const LabelInputStyled = styled.div`
     .control {
         flex: 0 0 60%;
         padding: 10px;
-        border: dashed 1px #eee;
     }
 `;

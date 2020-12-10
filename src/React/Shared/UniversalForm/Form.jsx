@@ -30,8 +30,8 @@ export default Form;
 
 const FormStyled = styled.form`
     max-width: 500px;
-    margin: 0px auto;
-    background-color: #fcfcfc;
+    margin: 30px auto;
+    background-color: #edfcf6;
     padding: 20px;
-    border: solid 1px #ccc;
+    border-radius: 15px;
 `;

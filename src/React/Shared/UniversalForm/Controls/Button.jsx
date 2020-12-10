@@ -27,17 +27,24 @@ const Button = ({
 export default Button;
 
 const ButtonWithStyles = styled.button`
-    background-color: #f19e37;
+    background-color: #3f51b5;
 
     display: inline-block;
     margin: 10px;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 10px;
+    color: #fff;
 
     border: none;
     outline: none;
 
-    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+    box-shadow: 0px 2px 4px rgba(0,0,0,.25);
+
+    &:hover {
+        box-shadow: 0px 0px 5px rgba(0,0,0,.3);
+        background-color: #0ca999;
+        cursor: pointer;
+    }
 
     &:active {
         box-shadow: 0px 0px 5px rgba(0,0,0,.3);

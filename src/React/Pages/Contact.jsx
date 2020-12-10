@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 /* Components ---------------------------*/
-import Template from '../Shared/Template.jsx';
 import UniversalForm from 'React/Shared/UniversalForm/UniversalForm.jsx';
 
 const Contact = () => {
@@ -18,14 +17,12 @@ const Contact = () => {
 
     return (
         <ContactStyled className='Contact'>
-            <Template title='Contact'>
                 <UniversalForm
                 formData={ defaultData }
                 submitText='Email us'
                 apiEndpoint='/email/send'
                 onSubmit={ handleOnSubmit }
                 />
-            </Template> 
         </ContactStyled>
     );
 }

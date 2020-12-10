@@ -77,11 +77,11 @@ const LightboxStyled = styled.div`
         transform: translate(-50%, -50%);
         background-color: #fff;
 
-        width: 300px;
+        width: 425px;
 
         header{
-            background-color: teal;
-            color: white;
+            background-color: white;
+            color: #333;
             padding: 10px;
 
             h2 {

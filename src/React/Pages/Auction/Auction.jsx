@@ -4,8 +4,6 @@ import { Switch, Route } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 /* Components ---------------------------*/
-import Template from '../../Shared/Template.jsx';
-import AuctionNav from './AuctionNav.jsx';
 import BidManager from './BidManager/BidManager.jsx';
 import Lots from './Lots/Lots.jsx';
 import BidThanks from './BidThanks.jsx';
@@ -16,17 +14,20 @@ const Auction = () => {
 
     return (
         <AuctionStyled className='Auction'>
-            <Template title='Auction'>
+                <div className="tours-title">
+                    <h2>Tours</h2>
+                </div>
                 {
-                    user.isLoggedIn &&
-                    <AuctionNav />
+                    !user.isLoggedIn &&
+                    <div className="login-alert">
+                        <h3>Log in to add tours to your cart</h3>
+                    </div>
                 }
                 <Switch>
                     <Route path='/auction/bids' component={ BidManager } />
                     <Route path='/auction/thanks' component={ BidThanks } />
                     <Route path='/auction' component={ Lots } exact />
-                </Switch>
-            </Template>  
+                </Switch> 
         </AuctionStyled>
     );
 }
@@ -34,5 +35,11 @@ const Auction = () => {
 export default Auction;
 
 const AuctionStyled = styled.div`
+    .tours-title {
+        text-align: center;
+    }
     
+    .login-alert {
+        text-align: center;
+    }
 `;
